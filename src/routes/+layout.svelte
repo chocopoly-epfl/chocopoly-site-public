@@ -1,0 +1,57 @@
+<script lang="ts">
+	import "../app.css";
+	
+	let menuOpen = false
+
+	const links: {href: string, name: string}[] =[
+		{href: '/', name: 'Acceuil'},
+		{href: '/', name: 'Recettes'},
+		{href: '/', name: 'Événements'},
+		{href: '/', name: 'Nous contacter'},
+		{href: '/', name: 'À propos'},
+	]
+</script>
+
+<nav class="{menuOpen ? 'w-[250px]' : 'w-0'} h-screen fixed z-1 top-0 right-0 bg-primary overflow-x-hidden pt-4 md:pt-16 duration-500">
+	{#each links as link}
+		<a href={link.href} class="m-2 ml-8 w-fit text no-underline  text-secondary block duration-300 transition-colors hover:text-[#ff0000] hover:border-b-2 md:text-xl">{link.name}</a>
+	{/each}
+</nav>
+
+<div id="notnav-container" class="{menuOpen ? 'md:mr-[250px]' : 'mr-0'} transition-margin duration-500">
+	<header class="h-[6rem] bg-accent flex justify-between content-center items-center">
+		<a href="/" class="h-full mx-8 mt-[1rem] flex"><img src="./logo-header.svg" alt="Logo chocopoly" class="object-contain"></a>
+		<button id="menu-button" class="mx-8 my-2 h-fit" on:click={() => menuOpen = !menuOpen} class:menuOpen={menuOpen} >
+			<div id="bar1" class="bg-secondary"></div>
+			<div id="bar2" class="bg-secondary"></div>
+			<div id="bar3" class="bg-secondary"></div>
+		</button>
+	</header>
+	
+	<main>
+		<slot></slot>
+	</main>
+</div>
+
+
+<style lang="postcss">
+	#menu-button > div {
+		width: 35px;
+		height: 5px;
+		margin: 6px 0;
+		transition: 0.4s;
+	}
+
+	/* Rotate first bar */
+	.menuOpen > #bar1 {
+		transform: translate(0, 11px) rotate(-45deg);
+	}
+
+	/* Fade out the second bar */
+	.menuOpen > #bar2 {opacity: 0;}
+
+	/* Rotate last bar */
+	.menuOpen > #bar3 {
+	transform: translate(0, -11px) rotate(45deg);
+	}
+</style>
