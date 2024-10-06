@@ -7,9 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model recipe {
+model Event {
   id        Int      @id @default(autoincrement())
-  published Boolean  @default(false)
+  date      DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
@@ -17,9 +17,9 @@ model recipe {
   image     Bytes?
 }
 
-model event {
+model Recipe {
   id        Int      @id @default(autoincrement())
-  date      DateTime
+  published Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
