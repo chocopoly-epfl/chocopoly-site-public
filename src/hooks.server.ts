@@ -10,7 +10,7 @@ export const handle: Handle = async function ({ event, resolve }) {
 	//Default data to pass to sveltekit if no session
 	event.locals.admin = false;
 
-	let hasVerifiedToken = token && (await verifyJwtToken(token));
+	const hasVerifiedToken = token && (await verifyJwtToken(token));
 	if (!hasVerifiedToken) {
 		return resolve(event);
 	}
