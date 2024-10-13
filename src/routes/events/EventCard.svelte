@@ -3,9 +3,7 @@
 	import ImageB64 from "$lib/components/ImageB64.svelte";
 	import type { EventClient } from "../../app";
 
-	export let event: EventClient;
-	console.log(event);
-	
+	export let event: EventClient;	
 	
 	let regexExpr = /(\n){2,}/g;
 </script>
