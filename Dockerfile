@@ -23,4 +23,4 @@ COPY --from=build /app/entrypoint.sh ./entrypoint.sh
 RUN ulimit -c unlimited
 
 RUN chmod +x entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+CMD ["sh", "entrypoint.sh"]
