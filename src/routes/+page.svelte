@@ -1,13 +1,26 @@
 <script lang="ts">
 	import Button from "$lib/components/ui/button/button.svelte";
     import Icon from '@iconify/svelte';
+    import { page } from "$app/stores";
 
-const networks: {color: string, icon: string, link: string}[] = [
-    {color: '#2ca5e0', icon: 'ic:baseline-telegram', link: ''},
-    {color: '#ff0202', icon: 'mdi:instagram', link: ''},
-]
-
+    const networks: {color: string, icon: string, link: string}[] = [
+        {color: '#2ca5e0', icon: 'ic:baseline-telegram', link: ''},
+        {color: '#ff0202', icon: 'mdi:instagram', link: ''},
+    ]
 </script>
+
+<svelte:head>
+	<!-- Primary Meta Tags -->
+	<title>Chocopoly</title>
+	<meta name="title" content="Chocopoly" />
+	<meta name="description" content={`L'association Chocopoly`} />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:title" content="Chocopoly" />
+	<meta property="og:description" content={`L'association Chocopoly`} />
+</svelte:head>
 
 <div class="hidden">
     <div class="bg-[#2ca5e0]"></div>
@@ -17,11 +30,11 @@ const networks: {color: string, icon: string, link: string}[] = [
 
 <div id="start" class="bg-accent h-full md:h-60 flex md:px-72 justify-between justify-items-center items-center flex-col md:flex-row">
     <div class="w-full md:w-1/2 px-10">
-        <p class="my-8 text-primary-foreground">Chocopoly est une association qui organise des événements autour du chocolat chaud à l’EPFL.</p>
+        <p class="my-8 text-primary-foreground min-w-52">Chocopoly est une association qui organise des événements autour du chocolat chaud à l’EPFL.</p>
         <div class="flex items-center h-20 justify-center my-2">
             {#each networks as network}
-                <a href={network.link} class="rounded-full bg-[{network.color}] w-12 h-12 mx-4 hover:border hover:border-white duration-100 hover:w-[50px] hover:h-[50px] flex items-center justify-center">
-                    <Icon icon={network.icon} color="white" style="font-size: 30px"/>
+                <a href={network.link} class="z-10 rounded-full bg-[{network.color}] w-12 h-12 min-w-12 mx-4 hover:border hover:border-white duration-100 hover:w-[50px] hover:h-[50px] flex items-center justify-center">
+                    <Icon icon={network.icon} color="white" style="font-size: 30px;"/>
                 </a>
             {/each}
         </div>
@@ -42,7 +55,7 @@ const networks: {color: string, icon: string, link: string}[] = [
     <p class="text-sm text-gray-500 leading-6 my-3">Salut à toi, ami·e du chocolat ! Envie de te réchauffer le cœur après une série d'analyse difficile ? De passer un bon moment avec d’autres amoureux du cacao ? De découvrir de nouvelles recettes incroyables pour te régaler ? Alors ne réfléchis plus, Chocopoly est faite pour toi ! Chocopoly est l’association spécialisée dans le chocolat chaud à l'EPFL. Nous organisons régulièrement des événements en partenariat avec d’autres associations et parfois des réunions entre membres pour discuter autour d’une tasse. Contacte-nous sur Insta ou Telegram pour nous nous rejoindre !</p>
     <Button>Proposer un partenariat</Button>
 </div>
-<div class="h-fit flex md:px-72 justify-between justify-items-center items-center flex-col md:flex-row bg-gray-100 mt-8 py-10">
+<div class="h-fit flex md:px-4 justify-between justify-items-center items-center flex-col md:flex-row mt-8 py-10 bg-gray-100 relative">
     <div class="w-full md:w-1/2 px-10 flex">
         <img src="chocomite1.jpeg" alt="Comité chocopoly." class="w-[230px] h-[230px] mx-2">
         <img src="chocomite2.jpeg" alt="Comité chocopoly." class="w-[230px] h-[230px] mx-2">

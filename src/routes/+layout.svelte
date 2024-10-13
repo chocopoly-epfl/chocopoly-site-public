@@ -1,15 +1,17 @@
 <script lang="ts">
+	import { writable } from "svelte/store";
 	import "../app.css";
-	
-	let menuOpen = false
+	import { setContext } from "svelte";
 
 	const links: {href: string, name: string}[] =[
-		{href: '/', name: 'Acceuil'},
+		{href: '/', name: 'Accueil'},
 		{href: '/', name: 'Recettes'},
 		{href: '/events', name: 'Événements'},
-		{href: '/', name: 'Nous contacter'},
-		{href: '/about', name: 'À propos'},
+		{href: '/comité', name: 'Comité'},
 	]
+
+	const menuOpen = writable(false)
+	setContext("menuOpen", menuOpen)
 </script>
 <div class="h-full">
 	<nav class="{menuOpen ? 'w-[250px]' : 'w-0'} h-screen fixed z-1 top-0 right-0 bg-primary overflow-x-hidden pt-4 md:pt-16 duration-500">
