@@ -13,4 +13,12 @@ declare global {
 	}
 }
 
-export {};
+export type EventClient = {
+	id: number,
+	date: string,
+	createdAt: string,
+	updatedAt: string,
+	title: string,
+	text: string,
+	image: string | undefined
+};

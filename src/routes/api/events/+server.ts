@@ -1,9 +1,10 @@
 import { error, json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { getByteArrayFromBase64 } from "$lib/utils";
+import prisma from "$lib/prisma";
 
-export const POST = (async ({ locals, request }) => {
-    if(!locals.admin) throw error(401);
+export const POST = (async ({ request }) => {
+    //if(!locals.admin) throw error(401);
 
     const body = await request.json();
     const {date, title, text, imageB64 }: {date: Date, title: string, text: string, imageB64?: string} = body
@@ -11,7 +12,7 @@ export const POST = (async ({ locals, request }) => {
 
     const event = await prisma.event.create({
         data: {
-            date,
+            date,   
             text,
             title,
             image

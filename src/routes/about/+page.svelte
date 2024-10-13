@@ -8,6 +8,30 @@
 			title: 'Chocoprésident',
 			email: 'president@chocopoly.ch',
 			desc: 'Le chocoprésident'
+		},
+		{
+			name: 'Test Test',
+			title: 'Chocoprésident',
+			email: 'president@chocopoly.ch',
+			desc: 'Le chocoprésident'
+		},
+		{
+			name: 'Test Test',
+			title: 'Chocoprésident',
+			email: 'president@chocopoly.ch',
+			desc: 'Le chocoprésident'
+		},
+		{
+			name: 'Test Test',
+			title: 'Chocoprésident',
+			email: 'president@chocopoly.ch',
+			desc: 'Le chocoprésident'
+		},
+		{
+			name: 'Test Test',
+			title: 'Chocoprésident',
+			email: 'president@chocopoly.ch',
+			desc: 'Le chocoprésident'
 		}];
 </script>
 

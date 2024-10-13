@@ -6,7 +6,7 @@
 	const links: {href: string, name: string}[] =[
 		{href: '/', name: 'Acceuil'},
 		{href: '/', name: 'Recettes'},
-		{href: '/', name: 'Événements'},
+		{href: '/events', name: 'Événements'},
 		{href: '/', name: 'Nous contacter'},
 		{href: '/about', name: 'À propos'},
 	]
