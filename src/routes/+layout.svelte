@@ -7,13 +7,11 @@
 		{href: '/', name: 'Accueil'},
 		{href: '/', name: 'Recettes'},
 		{href: '/events', name: 'Événements'},
-		{href: '/comité', name: 'Comité'},
+		{href: '/committee', name: 'Comité'},
 	]
 
 	const menuOpen = writable(false)
-	setContext("menuOpen", menuOpen)
-	console.log(menuOpen);
-	
+	setContext("menuOpen", menuOpen)	
 </script>
 <div class="h-full">
 	<nav class="{$menuOpen ? 'w-[250px]' : 'w-0'} h-screen fixed z-1 top-0 right-0 bg-primary overflow-x-hidden pt-4 md:pt-16 duration-500">
