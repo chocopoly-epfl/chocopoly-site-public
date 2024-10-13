@@ -66,8 +66,12 @@
         <p class="text-gray-500 text-sm">Du chocolat traditionnel Rita avec sa dose de chantilly et son chocolat intense, au chocolat vegan Albert et son délicieux lait végétal, Chocopoly propose plusieurs recettes et vous fait découvrir différentes conceptions du chocolat chaud !</p>
     </div>
 </div>
-<div class="h-[300px]">
-    <h2>Module photo (à coder)</h2>
+<div class="h-fit px-20">
+    <div class="grid grid-flow-dense gap-2 grid-cols-2 grid-rows-2 h-[500px] p-10">
+        <img src="main/gallery2.jpg" class="col-span-1 w-full h-full object-cover row-span-2" alt="hot chocolat">
+        <img src="main/gallery1.jpg" class="col-span-1 w-full h-full object-cover" alt="hot chocolat">
+        <img src="main/gallery3.jpg" class="col-span-1 w-full h-full object-cover" alt="hot chocolat">
+    </div>
 </div>
 <div class="bg-gray-100 mx-auto text-center text-gray-800 py-4">
     <h6 class="uppercase text-sm my-1">Nous sommes sur les réseaux</h6>
@@ -88,3 +92,9 @@
 <div class="bg-gray-100 text-gray-500 text-center py-2 text-sm">
     <p>© Copyright – Chocopoly 2024</p>
 </div>
+
+<style lang="scss">
+    .img-grid {
+
+    }
+</style>
