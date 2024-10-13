@@ -1,5 +1,5 @@
 import type { Actions } from './$types';
-import { ADMIN_PASSWORD } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { generateJwtToken } from '$lib/auth';
 import { redirect } from '@sveltejs/kit';
 
@@ -9,7 +9,7 @@ export const actions = {
 
         const password = data.get('password');
 
-        if(password !== ADMIN_PASSWORD) return
+        if(password !== env.ADMIN_PASSWORD) return
 
         const token = await generateJwtToken()
         cookies.set("token", token,  { path: "/" })
