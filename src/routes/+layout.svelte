@@ -2,6 +2,11 @@
 	import { writable } from "svelte/store";
 	import "../app.css";
 	import { setContext } from "svelte";
+	import type { PageData } from "./$types";
+	import Button from "$lib/components/ui/button/button.svelte";
+	import { goto, invalidateAll } from "$app/navigation";
+
+	export let data: PageData
 
 	const links: {href: string, name: string}[] =[
 		{href: '/', name: 'Accueil'},
@@ -12,6 +17,13 @@
 
 	const menuOpen = writable(false)
 	setContext("menuOpen", menuOpen)	
+
+	async function logout() {
+		await fetch("/admin/logout", { method: "POST" });
+		await goto("/");
+		invalidateAll();
+	}
+	
 </script>
 <div class="h-full">
 	<nav class="{$menuOpen ? 'md:w-[250px] w-full' : 'w-0'} h-screen fixed z-20 top-0 right-0 bg-primary overflow-x-hidden pt-4 md:pt-16 duration-500">
@@ -19,6 +31,11 @@
 			{#each links as link}
 				<a href={link.href} on:click={() => {$menuOpen = false}} class="m-2 ml-8 w-fit text-xl text no-underline  text-secondary block duration-300 transition-colors hover:text-[#ff0000] hover:border-b-2 md:text-xl">{link.name}</a>
 			{/each}
+		</div>
+
+		<div class:hidden={!data.admin} class="absolute bottom-0 w-full bg-slate-200 p-5">
+			<Button class="mx-auto block" on:click={logout}>Se déconnecter</Button>
+
 		</div>
 	</nav>
 	

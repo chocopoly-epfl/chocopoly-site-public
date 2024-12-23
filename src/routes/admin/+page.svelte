@@ -1,7 +1,14 @@
 <script lang="ts">
+	import { goto, invalidateAll } from "$app/navigation";
 	import type { PageData } from "../$types";
 
 	export let data: PageData
+
+	async function logout() {
+		await fetch("/admin/logout", { method: "POST" });
+		await goto("/");
+		invalidateAll();
+	}
 </script>
 <div class="bg-primary h-fit min-h-full py-5">
 	{#if !data.admin}
@@ -20,8 +27,8 @@
 	{:else}
 		<div class="bg-gray-200 p-5">
 			<h3 class="text-xl font-semibold">Logout</h3>
-			<form method="post" action="?/logout">
-				<button type="submit">Submit</button>
+			<form>
+				<button on:click={() => {logout()}}>Submit</button>
 			</form>
 		</div>
 	{/if}
