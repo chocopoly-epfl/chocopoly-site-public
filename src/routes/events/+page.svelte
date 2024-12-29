@@ -2,7 +2,9 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 	import { page } from "$app/stores";
-	import EventCard from "./EventCard.svelte";
+	import EventCard from "../../lib/components/EventCard.svelte";
+	import IconButton from "$components/IconButton.svelte";
+	import { goto } from "$app/navigation";
 	export let data: PageData;
 </script>
 
@@ -20,6 +22,16 @@
 </svelte:head>
 
 <main>
+	{#if data.admin}
+		<div class="add-button-container">
+			<IconButton
+				action={() => goto("/events/create")}
+				icon="material-symbols:add"
+				inline={true}
+				label="Créer un événement"
+			/>
+		</div>
+	{/if}
 	{#if data.events.length == 0}
 		<h1 class="text-secondary">Il n'y a aucun événement prévu pour le moment</h1>
 	{/if}
