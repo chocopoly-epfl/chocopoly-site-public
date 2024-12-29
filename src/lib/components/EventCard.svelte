@@ -1,17 +1,16 @@
 <!-- @format -->
 <script lang="ts">
-	import type { event } from "@prisma/client";
-	import ImageB64 from "./ImageB64.svelte";
+	import ImageB64 from "$lib/components/ImageB64.svelte";
+	import type { EventClient } from "../../app";
 
-
-	export let event: event;
-
+	export let event: EventClient;	
+	
 	let regexExpr = /(\n){2,}/g;
 </script>
 
-<div class="event">
+<div class="event bg-background">
 	<div class="img">
-		{#if event.imageb64}
+		{#if event.image}
 			<ImageB64 imageb64={event.image} alt={`Événement ${event.title}`} alternativeImageSrc="" />
 		{/if}
 	</div>
@@ -21,10 +20,10 @@
 			dateStyle: "medium",
 			timeStyle: "short",
 			timeZone: "Europe/Paris",
-		}).format(event.date)}
+		}).format(Date.parse(event.date))}
 	</h5>
 	<p>{event.text ? event.text.replaceAll(regexExpr, "\n") : ""}</p>
-	<a href={"/events/" + event.id} class="button">Découvrir</a>
+	<a href={"/events/" + event.id} class="button text-secondary">Découvrir</a>
 </div>
 
 <style lang="scss">
@@ -74,8 +73,8 @@
 		p {
 			margin-top: 4px;
 			color: #827d7d;
-			-webkit-line-clamp: 8;
 			line-clamp: 8;
+			-webkit-line-clamp: 8;
 			overflow: hidden;
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
