@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"start": "node -r dotenv/config build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -45,6 +46,7 @@
 		"clsx": "^2.1.1",
 		"compressorjs": "^1.2.1",
 		"date-picker-svelte": "^2.15.1",
+		"dotenv": "^16.4.7",
 		"jose": "^5.7.0",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
