@@ -3,7 +3,9 @@
 	import { page } from '$app/stores';
 	import ImageB64 from '$lib/components/ImageB64.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { getContext } from 'svelte';
 	import type { PageData } from './$types';
+	import type { Writable } from 'svelte/store';
 
 
 	export let data: PageData;
@@ -17,6 +19,8 @@
 	});
 
 	const dateStringUser = dateFormater.format(Date.parse(data.event.date))
+
+	const menuOpen: Writable<Boolean> = getContext("menuOpen")
 </script>
 
 <svelte:head>
@@ -39,27 +43,33 @@
 </svelte:head>
 
 <main class="h-[100%] bg-black">
-	<div class="h-full py-2 relative">
-		<div id="wrapper" class="mx-auto w-3/4">
-			{#if data.event.image}
-				<ImageB64 imageb64={data.event.image} alt="Événement" alternativeImageSrc="" />
-			{/if}
-			<h2>{data.event.title}</h2>
-			<h3>
-				{dateStringUser}
-			</h3>
-
-			<div id="split">
-				<p id="description">
-					{data.event.text}
-				</p>
-				<p>
-					<Button>Envie de staffer ?</Button>
-				</p>
+	<div class="h-full relative">
+		<div class="h-full w-full backdrop-blur py-2">
+			<div id="wrapper" class="mx-auto {$menuOpen ? "w-3/4" : "w-4/5"} duration-500">
+				{#if data.event.image}
+					<ImageB64 imageb64={data.event.image} alt="Événement" alternativeImageSrc="" />
+				{/if}
+				<h2>{data.event.title}</h2>
+				<h3>
+					{dateStringUser}
+				</h3>
+	
+				<div class="flex flex-col md:flex-row">
+					<p id="description">
+						{data.event.text}
+					</p>
+					<p class="mr-4">
+						{#if data.event.link}
+							<Button href={data.event.link}>Envie de staffer ?</Button>
+						{:else}
+							<p>Nous n'avons pas besoin de staff pour cet événement.</p>
+						{/if}
+					</p>
+				</div>
+	
+				
+	
 			</div>
-
-			
-
 		</div>
 	</div>
 

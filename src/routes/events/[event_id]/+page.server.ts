@@ -14,8 +14,9 @@ export const load: PageServerLoad = (async ({ params }) => {
 				title: true,
 				text: true,
 				image: true,
+				link: true,
 				updatedAt: true,
-				createdAt: true
+				createdAt: true,
 			},
 			where: {
 				id: parseInt(params.event_id)!
