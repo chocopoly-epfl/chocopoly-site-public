@@ -1,4 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
+
+import type { Event } from "@prisma/client";
+
 // for information about these interfaces
 declare global {
 	namespace App {
@@ -13,12 +16,9 @@ declare global {
 	}
 }
 
-export type EventClient = {
-	id: number,
+export type EventClient = Omit<Event, "date" | "createdAt" | "updatedAt" | "image"> & {
 	date: string,
 	createdAt: string,
 	updatedAt: string,
-	title: string,
-	text: string,
 	image: string | undefined
-};
+}

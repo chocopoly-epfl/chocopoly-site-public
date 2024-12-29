@@ -1,5 +1,6 @@
 import type { Event } from "@prisma/client";
 import type { EventClient } from "../app";
+import { getBase64FromByteArray } from "$utils";
 
 export function eventToEventClient(event: Event): EventClient {
     return {
@@ -9,6 +10,7 @@ export function eventToEventClient(event: Event): EventClient {
         updatedAt: event.updatedAt.toISOString(),
         title: event.title,
         text: event.text,
-        image: event.image?.toString()
+        link: event.link,
+        image: event.image ? getBase64FromByteArray(event.image) : undefined
     } as EventClient
 }

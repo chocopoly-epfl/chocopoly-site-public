@@ -14,6 +14,7 @@ model Event {
   updatedAt DateTime @updatedAt
   title     String
   text      String
+  link      String?
   image     Bytes?
 }
 

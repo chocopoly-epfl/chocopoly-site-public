@@ -7,7 +7,7 @@ export const POST = (async ({ request }) => {
     //if(!locals.admin) throw error(401);
 
     const body = await request.json();
-    const {date, title, text, imageB64 }: {date: Date, title: string, text: string, imageB64?: string} = body
+    const {date, title, text, imageB64, link }: {date: Date, title: string, text: string, imageB64?: string, link?: string} = body
 	const image = imageB64 ? getByteArrayFromBase64(imageB64) : null;
 
     const event = await prisma.event.create({
@@ -15,7 +15,8 @@ export const POST = (async ({ request }) => {
             date,   
             text,
             title,
-            image
+            image,
+            link
         }
     })
 
@@ -31,7 +32,7 @@ export const PATCH = (async ({ locals, request, url }) => {
     }
     
     const body = await request.json();
-    const {date, title, text, imageB64 }: {date?: Date, title?: string, text?: string, imageB64?: string} = body
+    const {date, title, text, imageB64, link }: {date?: Date, title?: string, text?: string, imageB64?: string, link?: string} = body
 	const image = imageB64 ? getByteArrayFromBase64(imageB64) : undefined;
 
     const event = await prisma.event.update({
@@ -39,7 +40,8 @@ export const PATCH = (async ({ locals, request, url }) => {
             date,
             text,
             title,
-            image
+            image,
+            link
         },
         where: {
             id: id
