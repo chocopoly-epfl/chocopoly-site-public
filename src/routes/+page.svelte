@@ -33,7 +33,7 @@
         <p class="my-8 text-primary-foreground min-w-52 text-2xl">Chocopoly est une association qui organise des événements autour du chocolat chaud à l’EPFL.</p>
         <div class="flex items-center h-20 justify-center my-2">
             {#each networks as network}
-                <a href={network.link} class="z-10 rounded-full bg-[{network.color}] w-20 h-20 min-w-12 mx-4 hover:border hover:border-white duration-100 hover:w-[50px] hover:h-[50px] flex items-center justify-center">
+                <a href={network.link} class="z-10 rounded-full bg-[{network.color}] w-20 h-20 min-w-12 mx-4 hover:border hover:border-white duration-100 hover:w-[70px] hover:h-[70px] flex items-center justify-center">
                     <Icon icon={network.icon} color="white" style="font-size: 50px;"/>
                 </a>
             {/each}
@@ -52,15 +52,15 @@
     <h6 class="uppercase text-xl my-1">Le chocolat chaud pour réchauffer les coeurs.</h6>
     <h4 class="uppercase text-3xl font-bold tracking-wide my-1">Chocopoly</h4>
     <img src="./chocolate.svg" alt="chocolat bar" class="h-12 w-12 object-contain mx-auto my-1">
-    <p class="text-xl text-gray-500 leading-6 my-3">Salut à toi, ami·e du chocolat ! Envie de te réchauffer le cœur après une série d'analyse difficile ? De passer un bon moment avec d’autres amoureux du cacao ? De découvrir de nouvelles recettes incroyables pour te régaler ? Alors ne réfléchis plus, Chocopoly est faite pour toi ! Chocopoly est l’association spécialisée dans le chocolat chaud à l'EPFL. Nous organisons régulièrement des événements en partenariat avec d’autres associations et parfois des réunions entre membres pour discuter autour d’une tasse. Contacte-nous sur Insta ou Telegram pour nous nous rejoindre !</p>
+    <p class="text-xl text-gray-500 leading-6 my-3 lg:text-center text-justify">Salut à toi, ami·e du chocolat ! Envie de te réchauffer le cœur après une série d'analyse difficile ? De passer un bon moment avec d’autres amoureux du cacao ? De découvrir de nouvelles recettes incroyables pour te régaler ? Alors ne réfléchis plus, Chocopoly est faite pour toi ! Chocopoly est l’association spécialisée dans le chocolat chaud à l'EPFL. Nous organisons régulièrement des événements en partenariat avec d’autres associations et parfois des réunions entre membres pour discuter autour d’une tasse. Contacte-nous sur Insta ou Telegram pour nous nous rejoindre !</p>
     <Button class="text-xl p-8 mx-auto">Proposer un partenariat</Button>
 </div>
-<div class="h-fit min-h-96 flex md:px-4 justify-between justify-items-center items-center flex-col md:flex-row mt-8 py-2 bg-gray-100 relative">
-    <div class="w-full md:w-1/2 mx-auto md:px-10 flex flex-col md:flex-row-reverse h-full">
-        <img src="chocomite1.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] md:mx-4 mx-auto my-2">
-        <img src="chocomite2.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] md:mx-4 mx-auto my-2">
+<div class="h-fit min-h-96 flex lg:px-4 justify-between justify-items-center items-center flex-col lg:flex-row mt-8 py-2 bg-gray-100 relative">
+    <div class="w-full lg:w-1/2 mx-auto lg:px-10 flex flex-col lg:flex-row-reverse h-full">
+        <img src="chocomite1.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] lg:mx-4 mx-auto my-2">
+        <img src="chocomite2.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] lg:mx-4 mx-auto my-2">
     </div>
-    <div class="w-full md:w-1/2 px-10 py-4">
+    <div class="w-full lg:w-1/2 px-10 py-4">
         <h4 class="text-3xl tracking-wide text-black">L'équipe</h4>
         <p class="py-2 text-gray-500 text-sm">Notre équipe de cuistos répond toujours présente pour réchauffer les cœurs des étudiant·es de l'EPFL et organiser des événements chaleureux et conviviaux !</p>
         <p class="text-gray-500 text-sm">Du chocolat traditionnel Rita avec sa dose de chantilly et son chocolat intense, au chocolat vegan Albert et son délicieux lait végétal, Chocopoly propose plusieurs recettes et vous fait découvrir différentes conceptions du chocolat chaud !</p>
