@@ -73,6 +73,7 @@
 		p {
 			margin-top: 4px;
 			color: #827d7d;
+			line-clamp: 8;
 			-webkit-line-clamp: 8;
 			overflow: hidden;
 			display: -webkit-box;

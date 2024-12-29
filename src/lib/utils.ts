@@ -64,3 +64,18 @@ export const flyAndScale = (
 export function getByteArrayFromBase64(base64String: string): Buffer {
 	return Buffer.from(base64String, "base64");
 }
+
+export function getBase64FromByteArray(byteArray: Buffer): string {
+	return byteArray.toString("base64")
+}
+
+export function getBase64FromFile(image: File | Blob): Promise<string> {
+	return new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(image);
+		reader.onload = (e) => {
+			resolve((e?.target?.result as string).split(",")[1]);
+		};
+		reader.onerror = reject;
+	});
+}
