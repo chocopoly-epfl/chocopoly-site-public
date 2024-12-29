@@ -5,6 +5,7 @@
 	import type { PageData } from "./$types";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import { goto, invalidateAll } from "$app/navigation";
+	import AlertDisplay from "$components/AlertDisplay.svelte";
 
 	export let data: PageData
 
@@ -55,6 +56,7 @@
 	</div>
 </div>
 
+<AlertDisplay/>
 
 <style lang="postcss">
 	#menu-button > div {
