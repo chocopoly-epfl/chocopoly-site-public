@@ -48,6 +48,7 @@
 		"date-picker-svelte": "^2.15.1",
 		"dotenv": "^16.4.7",
 		"jose": "^5.7.0",
+		"lucide-svelte": "^0.469.0",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}
