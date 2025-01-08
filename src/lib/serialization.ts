@@ -1,8 +1,8 @@
 import type { Event } from "@prisma/client";
-import type { EventClient } from "../app";
+import type { SerializedEvent } from "../app";
 import { getBase64FromByteArray } from "$utils";
 
-export function eventToEventClient(event: Event): EventClient {
+export function serializeEvent(event: Event): SerializedEvent {
     return {
         id: event.id,
         date: event.date.toISOString(),
@@ -12,5 +12,5 @@ export function eventToEventClient(event: Event): EventClient {
         text: event.text,
         link: event.link,
         image: event.image ? getBase64FromByteArray(event.image) : undefined
-    } as EventClient
+    } as SerializedEvent
 }

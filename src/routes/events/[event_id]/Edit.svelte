@@ -10,9 +10,9 @@
 	import Compressor from 'compressorjs';
 	import { DateInput } from 'date-picker-svelte';
 	import type { Writable } from 'svelte/store';
-	import type { EventClient } from '../../../app';
+	import type { SerializedEvent } from '../../../app';
 
-	export let event: EventClient;
+	export let event: SerializedEvent;
 
 	export let open: Writable<boolean>;
 

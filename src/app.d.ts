@@ -16,7 +16,7 @@ declare global {
 	}
 }
 
-export type EventClient = Omit<Event, "date" | "createdAt" | "updatedAt" | "image"> & {
+export type SerializedEvent = Omit<Event, "date" | "createdAt" | "updatedAt" | "image"> & {
 	date: string,
 	createdAt: string,
 	updatedAt: string,

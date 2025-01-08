@@ -3,7 +3,7 @@
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import prisma from "$lib/prisma";
-import { eventToEventClient } from "$lib/toClient";
+import { serializeEvent } from "$lib/serialization";
 
 export const load: PageServerLoad = (async ({ params }) => {
 	return {
@@ -22,7 +22,7 @@ export const load: PageServerLoad = (async ({ params }) => {
 				id: parseInt(params.event_id)!
 			}
 		})
-			.then((res) => {return eventToEventClient(res)})
+			.then((res) => serializeEvent(res))
 			.catch((err) => {
 				console.error(err)
 				throw redirect(307, "/404");

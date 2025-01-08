@@ -1,10 +1,10 @@
 <!-- @format -->
 <script lang="ts">
 	import ImageB64 from '$lib/components/ImageB64.svelte';
-	import type { EventClient } from '../../app';
+	import type { SerializedEvent } from '../../app';
 	import Button from './ui/button/button.svelte';
 
-	export let event: EventClient;
+	export let event: SerializedEvent;
 
 	let regexExpr = /(\n){2,}/g;
 </script>
