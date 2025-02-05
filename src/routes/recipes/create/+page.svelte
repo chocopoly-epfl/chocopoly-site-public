@@ -8,8 +8,9 @@
 	import { Input, type FormInputEvent } from '$lib/components/ui/input';
 	import { error, info, warning } from '$lib/stores';
 	import { getBase64FromFile } from '$lib/utils';
-	import { Carta, MarkdownEditor } from 'carta-md';
 	import Compressor from 'compressorjs';
+	import { MarkdownEditor, Carta } from 'carta-md';
+	import 'carta-md/default.css'; /* Default theme */
 
 	let published = false;
 	let title = '';
@@ -81,7 +82,7 @@
 
 	const carta = new Carta({
 		sanitizer: false,
-	});
+	})
 </script>
 
 <svelte:head>
@@ -129,11 +130,13 @@
 				<Input id="image" type="file" on:change={handleImageChange} />
 			</div>
 
-			<MarkdownEditor {carta} bind:value={text}/>
+
+			<MarkdownEditor {carta} bind:value={text} />
 
 			<Button disabled={submitDisabled} on:click={submit}>Créer l'événement</Button>
 		</form>
 	</div>
+
 </main>
 
 <style lang="scss">
@@ -168,11 +171,10 @@
 	:global(.carta-font-code) {
 		font-family: '...', monospace;
 		font-size: 1.1rem;
-		color: black;
 	}
 
 	#wrapper {
-		width: 700px;
+		width: 70%;
 		background: #fff;
 		border-radius: 10px;
 		overflow: hidden;
