@@ -1,6 +1,7 @@
 import { error, json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { getByteArrayFromBase64 } from "$lib/utils";
+import prisma from "$lib/prisma";
 
 export const POST = (async ({ locals, request }) => {
     if(!locals.admin) throw error(401);
@@ -40,6 +41,25 @@ export const PATCH = (async ({ locals, request, url }) => {
             title,
             image
         },
+        where: {
+            id: id
+        }
+    })
+
+    return json(event)
+}) satisfies RequestHandler;
+
+export const DELETE = (async ({ locals, url }) => {
+    if (!locals.admin) throw error(401);
+
+    const id = parseInt(url.searchParams.get("id") || "null") || null;
+    if (!id) {
+        throw error(400, "id params url is missing.")
+    }
+
+
+
+    const event = await prisma.recipe.delete({
         where: {
             id: id
         }

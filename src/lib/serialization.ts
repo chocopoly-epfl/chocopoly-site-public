@@ -1,5 +1,5 @@
-import type { Event } from "@prisma/client";
-import type { SerializedEvent } from "../app";
+import type { Event, Recipe } from "@prisma/client";
+import type { SerializedEvent, SerializedRecipe } from "../app";
 import { getBase64FromByteArray } from "$utils";
 
 export function serializeEvent(event: Event): SerializedEvent {
@@ -13,4 +13,16 @@ export function serializeEvent(event: Event): SerializedEvent {
         link: event.link,
         image: event.image ? getBase64FromByteArray(event.image) : undefined
     } as SerializedEvent
+}
+
+export function serializeRecipe(recipe: Recipe): SerializedRecipe {
+    return {
+        id: recipe.id,
+        createdAt: recipe.createdAt.toISOString(),
+        updatedAt: recipe.updatedAt.toISOString(),
+        title: recipe.title,
+        text: recipe.text,
+        image: recipe.image ? getBase64FromByteArray(recipe.image) : undefined,
+        published: recipe.published
+    } as SerializedRecipe
 }

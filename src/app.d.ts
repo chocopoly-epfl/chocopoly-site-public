@@ -1,6 +1,6 @@
 // See https://kit.svelte.dev/docs/types#app
 
-import type { Event } from "@prisma/client";
+import type { Event, Recipe } from "@prisma/client";
 
 // for information about these interfaces
 declare global {
@@ -18,6 +18,12 @@ declare global {
 
 export type SerializedEvent = Omit<Event, "date" | "createdAt" | "updatedAt" | "image"> & {
 	date: string,
+	createdAt: string,
+	updatedAt: string,
+	image: string | undefined
+}
+
+export type SerializedRecipe = Omit<Recipe, "createdAt" | "updatedAt" | "image"> & {
 	createdAt: string,
 	updatedAt: string,
 	image: string | undefined

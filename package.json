@@ -27,6 +27,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
 		"globals": "^15.0.0",
+		"lucide-svelte": "^0.475.0",
 		"postcss": "^8.4.40",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
@@ -43,12 +44,12 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^5.18.0",
+		"carta-md": "^4.6.7",
 		"clsx": "^2.1.1",
 		"compressorjs": "^1.2.1",
 		"date-picker-svelte": "^2.15.1",
 		"dotenv": "^16.4.7",
 		"jose": "^5.7.0",
-		"lucide-svelte": "^0.469.0",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}

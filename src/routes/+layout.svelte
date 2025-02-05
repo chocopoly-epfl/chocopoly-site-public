@@ -11,7 +11,7 @@
 
 	const links: {href: string, name: string}[] =[
 		{href: '/', name: 'Accueil'},
-		{href: '/', name: 'Recettes'},
+		{href: '/recipes', name: 'Recettes'},
 		{href: '/events', name: 'Événements'},
 		{href: '/committee', name: 'Comité'},
 	]
