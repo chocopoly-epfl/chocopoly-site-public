@@ -1,13 +1,11 @@
 <!-- @format -->
 <script lang="ts">
-	import type { PageData } from "./$types";
-	import { page } from "$app/stores";
-	import EventCard from "../../lib/components/EventCard.svelte";
-	import IconButton from "$components/IconButton.svelte";
 	import { goto } from "$app/navigation";
-	import RecipeCard from "./RecipeCard.svelte";
+	import { page } from "$app/stores";
+	import IconButton from "$components/IconButton.svelte";
 	import ImageB64 from "$components/ImageB64.svelte";
 	import { Carta, Markdown } from "carta-md";
+	import type { PageData } from "./$types";
 	export let data: PageData;
 
 	const carta = new Carta({
@@ -43,7 +41,7 @@
 	{#if data.recipes.length == 0}
 		<h1 class="text-secondary">Il n'y a pas de recettes pour le moment</h1>
 	{/if}
-	<div id="recipe-container" class="w-[90%] mx-auto">
+	<div id="recipe-container" class="w-[90%] mx-auto flex flex-col">
 		{#each data.recipes as recipe}
 			<a href={`recipes/${recipe.id}`}>
 				<div class="bg-white w-full h-[200px] my-5 flex p-2 ">
