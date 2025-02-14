@@ -10,6 +10,7 @@ DATABASE_URL="postgresql://${DB_USER}:${DB_PASSWORD}@localhost:5432/chocopoly"
 
 JWT_SECRET_KEY=RANDOM
 ADMIN_PASSWORD=PASSWORD
+PUBLIC_GLOBAL_DOMAIN="chocopoly.ch"
 ```
 
 Prisma se chargera de créer automatiquement les tables, etc., il n'y a rien de plus à faire.

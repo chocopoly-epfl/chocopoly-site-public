@@ -2,6 +2,7 @@ import type { Actions } from './$types';
 import { env } from '$env/dynamic/private';
 import { generateJwtToken } from '$lib/auth';
 import { redirect } from '@sveltejs/kit';
+import { PUBLIC_GLOBAL_DOMAIN } from '$env/static/public';
 
 export const actions = {
 	login: async ({ request, cookies }) => {
@@ -12,7 +13,7 @@ export const actions = {
         if(password !== env.ADMIN_PASSWORD) return
 
         const token = await generateJwtToken()
-        cookies.set("token", token,  { path: "/", httpOnly: true, secure: true })
+        cookies.set("token", token,  { path: "/", httpOnly: true, secure: true, domain: PUBLIC_GLOBAL_DOMAIN })
         redirect(302, "/")
 	}
 } satisfies Actions;
