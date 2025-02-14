@@ -11,6 +11,7 @@
 	import { getContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 	import type { PageData } from './$types';
+	import Edit from './Edit.svelte';
 
 	export let data: PageData;
 
@@ -72,6 +73,7 @@
 						</div>
 					</div>
 
+					<Edit open={openEditDialog} recipe={data.recipe}/>
 					<Dialog.Root
 						open={$openDeleteConfirmDialog}
 						onOutsideClick={() => ($openDeleteConfirmDialog = false)}

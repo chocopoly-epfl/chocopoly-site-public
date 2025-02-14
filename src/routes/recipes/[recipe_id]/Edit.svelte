@@ -10,9 +10,12 @@
 	import Compressor from 'compressorjs';
 	import { DateInput } from 'date-picker-svelte';
 	import type { Writable } from 'svelte/store';
-	import type { SerializedEvent } from '../../../app';
+	import type { SerializedEvent, SerializedRecipe } from '../../../app';
+	import Checkbox from '$components/ui/checkbox/checkbox.svelte';
+	import { Carta, MarkdownEditor } from 'carta-md';
+	import 'carta-md/default.css'; /* Default theme */
 
-	export let event: SerializedEvent;
+	export let recipe: SerializedRecipe;
 
 	export let open: Writable<boolean>;
 
@@ -56,8 +59,8 @@
 			return;
 		}
 
-		const searchParam = new URLSearchParams({ id: `${event.id}` });
-		fetch(`/api/events?${searchParam}`, {
+		const searchParam = new URLSearchParams({ id: `${recipe.id}` });
+		fetch(`/api/recipes?${searchParam}`, {
 			method: 'PATCH',
 			headers: {
 				Accept: 'application/json',
@@ -65,10 +68,9 @@
 			},
 
 			body: JSON.stringify({
-				title: event.title,
-				date: internal_date,
-				text: event.text,
-				link: event.link,
+				title: recipe.title,
+				text: recipe.text,
+				published: recipe.published,
 				imageB64: image ? await getBase64FromFile(image) : undefined
 			})
 		})
@@ -81,19 +83,16 @@
 	}
 
 	$: submitDisabled = (() => {
-		if (!event.title || !event.text || !event.date) return true;
+		if (!recipe.title || !recipe.text) return true;
 		return false;
 	})();
 
-	/**
-	 * Internal dates are here because dates of the Event object are of type string
-	 * instead of a type Date.
-	 **/
-	let internal_date: Date = new Date(Date.parse(event.date));
-	$: internal_date ? (event.date = internal_date.toISOString()) : undefined;
+	const carta = new Carta({
+		sanitizer: false
+	})
 </script>
 
-{#if event != undefined}
+{#if recipe != undefined}
 	<Dialog.Root
 		open={$open}
 		onOutsideClick={() => ($open = false)}
@@ -108,34 +107,26 @@
 	-->
 		<Dialog.Content class="!max-w-4xl h-[95%]">
 			<Dialog.Header>
-				<Dialog.Title>Editer l'événement</Dialog.Title>
+				<Dialog.Title>Editer la recette</Dialog.Title>
 			</Dialog.Header>
 			<div id="scroll-component" class="overflow-y-scroll overflow-x-clip">
 				<div class="flex w-full max-w-sm flex-col gap-1.5 dialog-input-elem">
 					<Label for="title">Titre</Label>
-					<Input type="text" id="title" bind:value={event.title} />
+					<Input type="text" id="title" bind:value={recipe.title} />
 				</div>
-
-				<div class="grid w-11/12 gap-1.5 dialog-input-elem">
-					<Label for="description">Text</Label>
-					<Textarea id="description" bind:value={event.text} class="min-h-64" />
+	
+				<div class="flex items-center space-x-2">
+					<Checkbox id="published" bind:checked={recipe.published} aria-labelledby="published-label" />
+					<Label
+						id="published-label"
+						for="published"
+						class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+					>
+						Publique ?
+					</Label>
 				</div>
-
-				<div class="flex w-full max-w-sm flex-col gap-1.5 dialog-input-elem">
-					<Label for="link">Lien Staff</Label>
-					<Input type="text" id="link" bind:value={event.link} />
-				</div>
-
-				<div class="flex w-full max-w-sm flex-col gap-1.5 dialog-input-elem">
-					<Label for="date">Date</Label>
-					<DateInput
-						bind:value={internal_date}
-						min={new Date(Date.now())}
-						timePrecision="minute"
-						id="date"
-						closeOnSelection
-					/>
-				</div>
+	
+				<MarkdownEditor {carta} bind:value={recipe.text} />
 
 				<div class="grid w-full max-w-sm items-center gap-1.5 dialog-input-elem">
 					<Label for="image">Image</Label>
@@ -169,5 +160,10 @@
 		margin-top: 1.25rem;
 		margin-bottom: 1.25rem;
 		margin-left: 0.5rem;
+	}
+
+	:global(.carta-font-code) {
+		font-family: '...', monospace;
+		font-size: 1.1rem;
 	}
 </style>
