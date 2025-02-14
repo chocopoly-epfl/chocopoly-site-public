@@ -6,7 +6,14 @@
 	import IconButton from "$components/IconButton.svelte";
 	import { goto } from "$app/navigation";
 	import RecipeCard from "./RecipeCard.svelte";
+	import ImageB64 from "$components/ImageB64.svelte";
+	import { Carta, Markdown } from "carta-md";
 	export let data: PageData;
+
+	const carta = new Carta({
+		sanitizer: false
+	});
+
 </script>
 
 <svelte:head>
@@ -36,9 +43,20 @@
 	{#if data.recipes.length == 0}
 		<h1 class="text-secondary">Il n'y a pas de recettes pour le moment</h1>
 	{/if}
-	<div id="recipe-container">
+	<div id="recipe-container" class="w-[90%] mx-auto">
 		{#each data.recipes as recipe}
-			<RecipeCard {recipe} />
+			<a href={`recipes/${recipe.id}`}>
+				<div class="bg-white w-full h-[200px] my-5 flex p-2 ">
+					<ImageB64 imageb64={recipe.image} alt={recipe.title} alternativeImageSrc="" class_name="h-full w-[200px] object-fit p-3"/>
+					<div class="pr-10">
+						<h4 class="border-b-2 p-2 text-2xl">{recipe.title}</h4>
+						<p class="overflow-hidden p-2 h-[122px]" >
+							<Markdown {carta} value={recipe.text} />
+						</p>
+						
+					</div>
+				</div>
+			</a>
 		{/each}
 	</div>
 </main>
@@ -62,9 +80,7 @@
 
 	#recipe-container {
 		display: flex;
-		flex-wrap: wrap;
 		justify-content: center;
-		padding: 4em 0;
 	}
 
 	.add-button-container {
