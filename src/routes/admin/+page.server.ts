@@ -13,7 +13,9 @@ export const actions = {
         if(password !== env.ADMIN_PASSWORD) return
 
         const token = await generateJwtToken()
-        cookies.set("token", token,  { path: "/", httpOnly: true, secure: true, domain: PUBLIC_GLOBAL_DOMAIN })
+        
+        cookies.set("token", token,  { path: "/", httpOnly: true, secure: true, domain: PUBLIC_GLOBAL_DOMAIN ? PUBLIC_GLOBAL_DOMAIN : undefined })
+        
         redirect(302, "/")
 	}
 } satisfies Actions;

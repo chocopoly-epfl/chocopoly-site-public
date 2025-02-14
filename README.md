@@ -12,6 +12,7 @@ JWT_SECRET_KEY=RANDOM
 ADMIN_PASSWORD=PASSWORD
 PUBLIC_GLOBAL_DOMAIN="chocopoly.ch"
 ```
+Mettre PUBLIC_GLOBAL_DOMAIN à vide, lorsqu'en localhost
 
 Prisma se chargera de créer automatiquement les tables, etc., il n'y a rien de plus à faire.
 
