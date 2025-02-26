@@ -4,8 +4,8 @@
     import { page } from "$app/stores";
 
     const networks: {color: string, icon: string, link: string}[] = [
-        {color: '#2ca5e0', icon: 'ic:baseline-telegram', link: ''},
-        {color: '#ff0202', icon: 'mdi:instagram', link: ''},
+        {color: '#2ca5e0', icon: 'ic:baseline-telegram', link: 'https://t.me/chocopoly'},
+        {color: '#ff0202', icon: 'mdi:instagram', link: 'https://www.instagram.com/chocopoly_epfl'},
     ]
 </script>
 
@@ -52,8 +52,16 @@
     <h6 class="uppercase text-xl my-1">Le chocolat chaud pour réchauffer les coeurs.</h6>
     <h4 class="uppercase text-3xl font-bold tracking-wide my-1">Chocopoly</h4>
     <img src="./chocolate.svg" alt="chocolat bar" class="h-12 w-12 object-contain mx-auto my-1">
-    <p class="text-xl text-gray-500 leading-6 my-3 lg:text-center text-justify">Salut à toi, ami·e du chocolat ! Envie de te réchauffer le cœur après une série d'analyse difficile ? De passer un bon moment avec d’autres amoureux du cacao ? De découvrir de nouvelles recettes incroyables pour te régaler ? Alors ne réfléchis plus, Chocopoly est faite pour toi ! Chocopoly est l’association spécialisée dans le chocolat chaud à l'EPFL. Nous organisons régulièrement des événements en partenariat avec d’autres associations et parfois des réunions entre membres pour discuter autour d’une tasse. Contacte-nous sur Insta ou Telegram pour nous nous rejoindre !</p>
-    <Button class="text-xl p-8 mx-auto">Proposer un partenariat</Button>
+    <p class="text-xl text-gray-500 leading-6 my-3 lg:text-center text-justify">
+        Salut à toi, ami·e du chocolat ! Envie de te réchauffer le cœur après une série d'analyse difficile ? De passer un bon moment avec d’autres amoureux du cacao ? De découvrir de nouvelles recettes incroyables pour te régaler ?
+        <br/>
+        Alors ne réfléchis plus, Chocopoly est faite pour toi ! Chocopoly est l’association spécialisée dans le chocolat chaud à l'EPFL. Nous organisons régulièrement des événements en partenariat avec d’autres associations et parfois des réunions entre membres pour discuter autour d’une tasse.
+        <br/>
+        Contacte-nous sur Insta ou Telegram pour nous nous rejoindre !
+    </p>
+    <a href="mailto:contact@chocopoly.ch">
+        <Button class="text-xl p-8 mx-auto">Proposer un partenariat : contact@chocopoly.ch</Button>
+    </a>
 </div>
 <div class="h-fit min-h-96 flex lg:px-4 justify-between justify-items-center items-center flex-col lg:flex-row mt-8 py-2 bg-gray-100 relative">
     <div class="w-full lg:w-1/2 mx-auto lg:px-10 flex flex-col lg:flex-row-reverse h-full">
@@ -64,7 +72,7 @@
     <div class="w-full lg:w-1/2 px-10 py-4">
         <h4 class="text-3xl tracking-wide text-black">L'équipe</h4>
         <p class="py-2 text-gray-500 text-sm">Notre équipe de cuistos répond toujours présente pour réchauffer les cœurs des étudiant·es de l'EPFL et organiser des événements chaleureux et conviviaux !</p>
-        <p class="text-gray-500 text-sm">Du chocolat traditionnel Rita avec sa dose de chantilly et son chocolat intense, au chocolat vegan Albert et son délicieux lait végétal, Chocopoly propose plusieurs recettes et vous fait découvrir différentes conceptions du chocolat chaud !</p>
+        <p class="text-gray-500 text-sm">Du chocolat traditionnel Rita avec sa dose de chantilly et son chocolat intense, à notre chocolat originel et son délicieux lait végétal, Chocopoly propose plusieurs recettes et vous fait découvrir différentes conceptions du chocolat chaud !</p>
     </div>
 </div>
 <div class="h-fit md:px-20">
@@ -87,9 +95,11 @@
 </div>
 <div class="my-2 w-full">
     <div class="mx-auto w-fit">
-        <Button class="mx-auto">Statuts au 18 mars 2024</Button>
+        <a href="reglement_interne_chocopoly_29_novembre_2024.pdf" target="_blank">
+            <Button class="mx-auto">Statuts au 29 novembre 2024</Button>
+        </a>
     </div>
 </div>
 <div class="bg-gray-100 text-gray-500 text-center py-2 text-sm">
-    <p>© Copyright – Chocopoly 2024</p>
+    <p>© Copyright – Chocopoly 2025</p>
 </div>
