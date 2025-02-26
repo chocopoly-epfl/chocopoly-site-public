@@ -77,9 +77,9 @@
 </div>
 <div class="h-fit md:px-20">
     <div class="flex flex-col md:grid grid-flow-dense gap-2 grid-cols-2 grid-rows-2 h-[800px] p-10">
-        <img src="main/gallery2.jpg" class="col-span-1 w-full h-full object-cover row-span-2" alt="hot chocolat">
+        <img src="main/gallery3.jpg" class="col-span-1 w-full h-full object-cover row-span-2" alt="hot chocolat">
+        <img src="main/gallery2.jpg" class="col-span-1 w-full h-full object-cover" alt="hot chocolat">
         <img src="main/gallery1.jpg" class="col-span-1 w-full h-full object-cover" alt="hot chocolat">
-        <img src="main/gallery3.jpg" class="col-span-1 w-full h-full object-cover" alt="hot chocolat">
     </div>
 </div>
 <div class="bg-gray-100 mx-auto text-center text-gray-800 py-4">
@@ -87,8 +87,8 @@
     <h4 class="uppercase text-2xl font-bold tracking-wide my-1">Rejoins nous !</h4>
     <div class="flex items-center h-20 justify-center my-2">
         {#each networks as network}
-            <a href={network.link} class="rounded-full bg-[{network.color}] w-12 h-12 mx-4 hover:border hover:border-white duration-100 hover:w-[50px] hover:h-[50px] flex items-center justify-center">
-                <Icon icon={network.icon} color="white" style="font-size: 30px"/>
+            <a href={network.link} class="rounded-full bg-[{network.color}] w-16 h-16 mx-4 hover:border hover:border-white duration-100 hover:w-[50px] hover:h-[50px] flex items-center justify-center">
+                <Icon icon={network.icon} color="white" style="font-size: 40px"/>
             </a>
         {/each}
     </div>
