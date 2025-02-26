@@ -57,8 +57,9 @@
 </div>
 <div class="h-fit min-h-96 flex lg:px-4 justify-between justify-items-center items-center flex-col lg:flex-row mt-8 py-2 bg-gray-100 relative">
     <div class="w-full lg:w-1/2 mx-auto lg:px-10 flex flex-col lg:flex-row-reverse h-full">
-        <img src="chocomite1.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] lg:mx-4 mx-auto my-2">
-        <img src="chocomite2.jpeg" alt="Comité chocopoly." class="w-[305px] h-[305px] lg:mx-4 mx-auto my-2">
+        <img src="committee/chocomite1.png" alt="Comité chocopoly 1" class="w-[250px] h-[250px] lg:mx-2 my-2">
+        <img src="committee/chocomite2.png" alt="Comité chocopoly 2" class="w-[250px] h-[250px] lg:mx-2 my-2">
+        <img src="committee/chocomite3.png" alt="Comité chocopoly 3" class="w-[250px] h-[250px] lg:mx-2 my-2">
     </div>
     <div class="w-full lg:w-1/2 px-10 py-4">
         <h4 class="text-3xl tracking-wide text-black">L'équipe</h4>
